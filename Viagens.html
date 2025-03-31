@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viagens - TransAngola</title>
+    <title>TransAngola - Viagens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --primary-color: #1a73e8;
@@ -317,7 +318,6 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -326,11 +326,11 @@
                 <h1>TransAngola</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="viagens.html" class="active">Viagens</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="comprar.html" class="cta-button">Comprar Bilhete</a></li>
+                <li><a href="Untitled-1.html">Início</a></li>
+                <li><a href="Sobre.html">Sobre</a></li>
+                <li><a href="Viagens.html" class="active">Viagens</a></li>
+                <li><a href="Contato.html">Contato</a></li>
+                <li><a href="Viagens.html" class="cta-button">Comprar Bilhete</a></li>
             </ul>
         </nav>
     </header>
@@ -341,69 +341,34 @@
             <p>Viaje com conforto e segurança para qualquer destino em Angola. Encontre as melhores rotas e horários disponíveis.</p>
         </div>
 
-        <div class="filters">
-            <div class="filter-group">
-                <label for="origin">Origem</label>
-                <select id="origin">
-                    <option value="">Selecione a origem</option>
-                    <option value="luanda">Luanda</option>
-                    <option value="huambo">Huambo</option>
-                    <option value="lubango">Lubango</option>
-                    <!-- Adicione mais opções -->
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="destination">Destino</label>
-                <select id="destination">
-                    <option value="">Selecione o destino</option>
-                    <option value="benguela">Benguela</option>
-                    <option value="cabinda">Cabinda</option>
-                    <option value="cunene">Cunene</option>
-                    <!-- Adicione mais opções -->
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="date">Data</label>
-                <select id="date">
-                    <option value="">Selecione a data</option>
-                    <option value="today">Hoje</option>
-                    <option value="tomorrow">Amanhã</option>
-                    <option value="week">Esta semana</option>
-                </select>
-            </div>
-        </div>
 
         <div class="provinces-grid">
-            <!-- Província 1 -->
+            <!-- Província 1: Bengo -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?luanda" alt="Luanda">
+                    <img src="Img/Bengo.JPG" alt="Bengo">
                 </div>
                 <div class="province-info">
-                    <h3>Luanda</h3>
-                    <p class="province-capital">Capital: Luanda</p>
+                    <h3>Bengo</h3>
+                    <p class="province-capital">Capital: Caxito</p>
                     <div class="province-routes">
                         <div class="route-item">
-                            <span>Luanda → Benguela</span>
-                            <span class="route-price">10.470 Kz</span>
+                            <span>Bengo → Luanda</span>
+                            <span class="route-price">5.000 Kz</span>
                         </div>
                         <div class="route-item">
-                            <span>Luanda → Huambo</span>
-                            <span class="route-price">12.350 Kz</span>
+                            <span>Bengo → Uíge</span>
+                            <span class="route-price">7.500 Kz</span>
                         </div>
-                        <div class="route-item">
-                            <span>Luanda → Lubango</span>
-                            <span class="route-price">16.170 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 2 -->
+            <!-- Província 2: Benguela -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?benguela" alt="Benguela">
+                    <img src="Img/Benguela.jpeg" alt="Benguela">
                 </div>
                 <div class="province-info">
                     <h3>Benguela</h3>
@@ -411,25 +376,153 @@
                     <div class="province-routes">
                         <div class="route-item">
                             <span>Benguela → Luanda</span>
-                            <span class="route-price">10.470 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Benguela → Lobito</span>
-                            <span class="route-price">3.250 Kz</span>
+                            <span class="route-price">16.170 Kz</span>
                         </div>
                         <div class="route-item">
                             <span>Benguela → Huambo</span>
                             <span class="route-price">8.900 Kz</span>
                         </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 3 -->
+            <!-- Província 3: Bié -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?huambo" alt="Huambo">
+                    <img src="Img/bie.png" alt="Bié">
+                </div>
+                <div class="province-info">
+                    <h3>Bié</h3>
+                    <p class="province-capital">Capital: Kuito</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Bié → Luanda</span>
+                            <span class="route-price">12.350 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Bié → Huambo</span>
+                            <span class="route-price">6.800 Kz</span>
+                        </div>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 4: Cabinda -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="Img/Cabinda.jpg" alt="Cabinda">
+                </div>
+                <div class="province-info">
+                    <h3>Cabinda</h3>
+                    <p class="province-capital">Capital: Cabinda</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Cabinda → Luanda</span>
+                            <span class="route-price">25.000 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Cabinda → Soyo</span>
+                            <span class="route-price">15.000 Kz</span>
+                        </div>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 5: Cuando-Cubango -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="Img/cuando_cubango.jpg" alt="Cuando-Cubango">
+                </div>
+                <div class="province-info">
+                    <h3>Cuando-Cubango</h3>
+                    <p class="province-capital">Capital: Menongue</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Cuando-Cubango → Luanda</span>
+                            <span class="route-price">18.500 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Cuando-Cubango → Lubango</span>
+                            <span class="route-price">12.000 Kz</span>
+                        </div>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 6: Cuanza-Norte -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="Img/Cuanza Norte.jpg" alt="Cuanza-Norte">
+                </div>
+                <div class="province-info">
+                    <h3>Cuanza-Norte</h3>
+                    <p class="province-capital">Capital: N'dalatando</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Cuanza-Norte → Luanda</span>
+                            <span class="route-price">8.000 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Cuanza-Norte → Malanje</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 7: Cuanza-Sul -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="Img/cuanza sul.jpg" alt="Cuanza-Sul">
+                </div>
+                <div class="province-info">
+                    <h3>Cuanza-Sul</h3>
+                    <p class="province-capital">Capital: Sumbe</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Cuanza-Sul → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Cuanza-Sul → Benguela</span>
+                            <span class="route-price">7.500 Kz</span>
+                        </div>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 8: Cunene -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="Img/Cunene.jpg" alt="Cunene">
+                </div>
+                <div class="province-info">
+                    <h3>Cunene</h3>
+                    <p class="province-capital">Capital: Ondjiva</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Cunene → Lubango</span>
+                            <span class="route-price">6.000 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Cunene → Namibe</span>
+                            <span class="route-price">5.500 Kz</span>
+                        </div>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 9: Huambo -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="Img/Huambo.jpg" alt="Huambo">
                 </div>
                 <div class="province-info">
                     <h3>Huambo</h3>
@@ -443,67 +536,103 @@
                             <span>Huambo → Benguela</span>
                             <span class="route-price">8.900 Kz</span>
                         </div>
-                        <div class="route-item">
-                            <span>Huambo → Kuito</span>
-                            <span class="route-price">5.600 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 4 -->
+            <!-- Província 10: Huíla -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?lubango" alt="Lubango">
+                    <img src="Img/Huíla.png" alt="Huíla">
                 </div>
                 <div class="province-info">
                     <h3>Huíla</h3>
                     <p class="province-capital">Capital: Lubango</p>
                     <div class="province-routes">
                         <div class="route-item">
-                            <span>Lubango → Luanda</span>
+                            <span>Huíla → Luanda</span>
+                            <span class="route-price">15.000 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Huíla → Namibe</span>
+                            <span class="route-price">7.000 Kz</span>
+                        </div>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 11: Luanda -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="Img/Luanda.jpg" alt="Luanda">
+                </div>
+                <div class="province-info">
+                    <h3>Luanda</h3>
+                    <p class="province-capital">Capital: Luanda</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Luanda → Benguela</span>
                             <span class="route-price">16.170 Kz</span>
                         </div>
                         <div class="route-item">
-                            <span>Lubango → Namibe</span>
-                            <span class="route-price">7.400 Kz</span>
+                            <span>Luanda → Huambo</span>
+                            <span class="route-price">12.350 Kz</span>
                         </div>
-                        <div class="route-item">
-                            <span>Lubango → Ondjiva</span>
-                            <span class="route-price">9.800 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 5 -->
+            <!-- Província 12: Lunda-Norte -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?cabinda" alt="Cabinda">
+                    <img src="Img/Lunda Norte.jpg" alt="Lunda-Norte">
                 </div>
                 <div class="province-info">
-                    <h3>Cabinda</h3>
-                    <p class="province-capital">Capital: Cabinda</p>
+                    <h3>Lunda-Norte</h3>
+                    <p class="province-capital">Capital: Dundo</p>
                     <div class="province-routes">
                         <div class="route-item">
-                            <span>Cabinda → Luanda</span>
-                            <span class="route-price">18.500 Kz</span>
+                            <span>Lunda-Norte → Luanda</span>
+                            <span class="route-price">20.000 Kz</span>
                         </div>
                         <div class="route-item">
-                            <span>Cabinda → Soyo</span>
-                            <span class="route-price">12.300 Kz</span>
+                            <span>Lunda-Norte → Malanje</span>
+                            <span class="route-price">12.000 Kz</span>
                         </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 6 -->
+            <!-- Província 13: Lunda-Sul -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                    <img src="Img/Lunda Sul.jpg" alt="Lunda-Sul">
+                </div>
+                <div class="province-info">
+                    <h3>Lunda-Sul</h3>
+                    <p class="province-capital">Capital: Saurimo</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Lunda-Sul → Luanda</span>
+                            <span class="route-price">18.000 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Lunda-Sul → Lunda-Norte</span>
+                            <span class="route-price">10.000 Kz</span>
+                        </div>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 14: Malanje -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="Img/Malanje.webp" alt="Malanje">
                 </div>
                 <div class="province-info">
                     <h3>Malanje</h3>
@@ -517,271 +646,95 @@
                             <span>Malanje → Uíge</span>
                             <span class="route-price">6.700 Kz</span>
                         </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 7 -->
+            <!-- Província 15: Moxico -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                    <img src="Img/Moxico.jpg" alt="Moxico">
                 </div>
                 <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
+                    <h3>Moxico</h3>
+                    <p class="province-capital">Capital: Luena</p>
                     <div class="province-routes">
                         <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
+                            <span>Moxico → Luanda</span>
+                            <span class="route-price">22.000 Kz</span>
                         </div>
                         <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
+                            <span>Moxico → Huambo</span>
+                            <span class="route-price">15.000 Kz</span>
                         </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Província 8 -->
-            <div class="province-card">
-                <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
-                </div>
-                <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
-                    <div class="province-routes">
-                        <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 9 -->
+            <!-- Província 16: Namibe -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                    <img src="Img/Namibe.jpg" alt="Namibe">
                 </div>
                 <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
+                    <h3>Namibe</h3>
+                    <p class="province-capital">Capital: Namibe</p>
                     <div class="province-routes">
                         <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
+                            <span>Namibe → Lubango</span>
+                            <span class="route-price">6.000 Kz</span>
                         </div>
                         <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
+                            <span>Namibe → Luanda</span>
+                            <span class="route-price">18.000 Kz</span>
                         </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 10 -->
+            <!-- Província 17: Uíge -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                    <img src="Img/Uíge.jpg" alt="Uíge">
                 </div>
                 <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
+                    <h3>Uíge</h3>
+                    <p class="province-capital">Capital: Uíge</p>
                     <div class="province-routes">
                         <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
+                            <span>Uíge → Luanda</span>
+                            <span class="route-price">10.000 Kz</span>
                         </div>
                         <div class="route-item">
-                            <span>Malanje → Uíge</span>
+                            <span>Uíge → Malanje</span>
                             <span class="route-price">6.700 Kz</span>
                         </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Província 11 -->
+            <!-- Província 18: Zaire -->
             <div class="province-card">
                 <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                    <img src="Img/Zaire.jpg" alt="Zaire">
                 </div>
                 <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
+                    <h3>Zaire</h3>
+                    <p class="province-capital">Capital: Mbanza Kongo</p>
                     <div class="province-routes">
                         <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
+                            <span>Zaire → Luanda</span>
+                            <span class="route-price">12.000 Kz</span>
                         </div>
                         <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
+                            <span>Zaire → Cabinda</span>
+                            <span class="route-price">15.000 Kz</span>
                         </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Província 12 -->
-            <div class="province-card">
-                <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
-                </div>
-                <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
-                    <div class="province-routes">
-                        <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Província 13 -->
-            <div class="province-card">
-                <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
-                </div>
-                <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
-                    <div class="province-routes">
-                        <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Província 14 -->
-            <div class="province-card">
-                <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
-                </div>
-                <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
-                    <div class="province-routes">
-                        <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Província 15 -->
-            <div class="province-card">
-                <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
-                </div>
-                <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
-                    <div class="province-routes">
-                        <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Província 16 -->
-            <div class="province-card">
-                <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
-                </div>
-                <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
-                    <div class="province-routes">
-                        <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Província 17 -->
-            <div class="province-card">
-                <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
-                </div>
-                <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
-                    <div class="province-routes">
-                        <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Província 18 -->
-            <div class="province-card">
-                <div class="province-image">
-                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
-                </div>
-                <div class="province-info">
-                    <h3>Malanje</h3>
-                    <p class="province-capital">Capital: Malanje</p>
-                    <div class="province-routes">
-                        <div class="route-item">
-                            <span>Malanje → Luanda</span>
-                            <span class="route-price">9.200 Kz</span>
-                        </div>
-                        <div class="route-item">
-                            <span>Malanje → Uíge</span>
-                            <span class="route-price">6.700 Kz</span>
-                        </div>
-                        <a href="#" class="view-all">Ver todas rotas →</a>
+                        <a href="viagen.html" class="view-all">Ver todas rotas →</a>
                     </div>
                 </div>
             </div>
@@ -810,7 +763,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 TransAngola. Todos os direitos reservados.</p>
+            <p>&copy; 2025 TransAngola. Todos os direitos reservados.</p>
         </div>
     </footer>
 </body>

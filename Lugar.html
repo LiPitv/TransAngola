@@ -14,10 +14,9 @@
             </div>
             <ul class="nav-links">
                 <li><a href="Untitled-1.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="servicos.html">Serviços</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="comprar.html" class="cta-button active">Comprar Bilhete</a></li>
+                <li><a href="Sobre.html">Sobre</a></li>
+                <li><a href="Contato.html">Contato</a></li>
+                <li><a href="Viagens.html" class="cta-button active">Comprar Bilhete</a></li>
             </ul>
         </nav>
     </header>
@@ -82,19 +81,33 @@
         <div class="message" id="message"></div>
     </div>
     <script>
+        // Armazenar poltronas selecionadas
+        let selectedSeats = [];
+        
         document.querySelectorAll('.seat').forEach(seat => {
             seat.addEventListener('click', () => {
                 seat.classList.toggle('selected');
+                
+                // Atualizar lista de poltronas selecionadas
+                const seatNumber = seat.textContent;
+                if (seat.classList.contains('selected')) {
+                    if (!selectedSeats.includes(seatNumber)) {
+                        selectedSeats.push(seatNumber);
+                    }
+                } else {
+                    selectedSeats = selectedSeats.filter(num => num !== seatNumber);
+                }
+                
                 updateProximoButton();
             });
         });
 
         // Função para atualizar o estado do botão Próximo
         function updateProximoButton() {
-            const selectedSeats = document.querySelectorAll('.seat.selected');
+            const selectedSeatsElements = document.querySelectorAll('.seat.selected');
             const btnProximo = document.getElementById('btnProximo');
             
-            if (selectedSeats.length > 0) {
+            if (selectedSeatsElements.length > 0) {
                 document.getElementById('message').textContent = '';
             }
         }
@@ -104,23 +117,19 @@
             window.location.href = 'viagen.html';
         });
 
-        // Validação para o botão Próximo
+        // Redirecionar para Informações pessoais.html quando clicar em Próximo
         document.getElementById('btnProximo').addEventListener('click', () => {
-            const selectedSeats = document.querySelectorAll('.seat.selected');
+            const selectedSeatsElements = document.querySelectorAll('.seat.selected');
             const message = document.getElementById('message');
             
-            if (selectedSeats.length === 0) {
+            if (selectedSeatsElements.length === 0) {
                 message.textContent = 'Por favor, selecione pelo menos uma poltrona antes de continuar.';
             } else {
-                // Aqui você pode adicionar o redirecionamento para a próxima página
-                // ou a lógica para avançar no processo de compra
-                message.textContent = 'Processando sua seleção...';
+                // Armazenar as poltronas selecionadas no localStorage
+                localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
                 
-                // Exemplo: redirecionar para pagamento.html após 1 segundo
-                setTimeout(() => {
-                    // window.location.href = 'pagamento.html';
-                    alert('Redirecionando para a página de pagamento...');
-                }, 1000);
+                // Redirecionar para Informações pessoais.html
+                window.location.href = 'Informações pessoais.html';
             }
         });
 
