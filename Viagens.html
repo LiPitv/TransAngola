@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagens - TransAngola</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --dark-color: #202124;
+            --light-color: #ffffff;
+            --gray-color: #5f6368;
+            --background-color: #f8f9fa;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--background-color);
+            padding-top: 80px;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: var(--light-color) !important;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #1557b0;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Filtros */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .filter-group select {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Províncias */
+        .provinces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .province-card {
+            background: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .province-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .province-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .province-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .province-card:hover .province-image img {
+            transform: scale(1.05);
+        }
+
+        .province-info {
+            padding: 1.5rem;
+        }
+
+        .province-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .province-capital {
+            color: var(--gray-color);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .province-routes {
+            margin-top: 1rem;
+        }
+
+        .route-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .route-item:last-child {
+            border-bottom: none;
+        }
+
+        .route-price {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .view-all {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .view-all:hover {
+            color: #1557b0;
+            text-decoration: underline;
+        }
+
+        /* Rodapé */
+        footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--light-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-group {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .provinces-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .main-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .page-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>TransAngola</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="viagens.html" class="active">Viagens</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="comprar.html" class="cta-button">Comprar Bilhete</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h2>Descubra as 18 Províncias de Angola</h2>
+            <p>Viaje com conforto e segurança para qualquer destino em Angola. Encontre as melhores rotas e horários disponíveis.</p>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="origin">Origem</label>
+                <select id="origin">
+                    <option value="">Selecione a origem</option>
+                    <option value="luanda">Luanda</option>
+                    <option value="huambo">Huambo</option>
+                    <option value="lubango">Lubango</option>
+                    <!-- Adicione mais opções -->
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="destination">Destino</label>
+                <select id="destination">
+                    <option value="">Selecione o destino</option>
+                    <option value="benguela">Benguela</option>
+                    <option value="cabinda">Cabinda</option>
+                    <option value="cunene">Cunene</option>
+                    <!-- Adicione mais opções -->
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="date">Data</label>
+                <select id="date">
+                    <option value="">Selecione a data</option>
+                    <option value="today">Hoje</option>
+                    <option value="tomorrow">Amanhã</option>
+                    <option value="week">Esta semana</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="provinces-grid">
+            <!-- Província 1 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?luanda" alt="Luanda">
+                </div>
+                <div class="province-info">
+                    <h3>Luanda</h3>
+                    <p class="province-capital">Capital: Luanda</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Luanda → Benguela</span>
+                            <span class="route-price">10.470 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Luanda → Huambo</span>
+                            <span class="route-price">12.350 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Luanda → Lubango</span>
+                            <span class="route-price">16.170 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 2 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?benguela" alt="Benguela">
+                </div>
+                <div class="province-info">
+                    <h3>Benguela</h3>
+                    <p class="province-capital">Capital: Benguela</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Benguela → Luanda</span>
+                            <span class="route-price">10.470 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Benguela → Lobito</span>
+                            <span class="route-price">3.250 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Benguela → Huambo</span>
+                            <span class="route-price">8.900 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 3 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?huambo" alt="Huambo">
+                </div>
+                <div class="province-info">
+                    <h3>Huambo</h3>
+                    <p class="province-capital">Capital: Huambo</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Huambo → Luanda</span>
+                            <span class="route-price">12.350 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Huambo → Benguela</span>
+                            <span class="route-price">8.900 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Huambo → Kuito</span>
+                            <span class="route-price">5.600 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 4 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?lubango" alt="Lubango">
+                </div>
+                <div class="province-info">
+                    <h3>Huíla</h3>
+                    <p class="province-capital">Capital: Lubango</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Lubango → Luanda</span>
+                            <span class="route-price">16.170 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Lubango → Namibe</span>
+                            <span class="route-price">7.400 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Lubango → Ondjiva</span>
+                            <span class="route-price">9.800 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 5 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?cabinda" alt="Cabinda">
+                </div>
+                <div class="province-info">
+                    <h3>Cabinda</h3>
+                    <p class="province-capital">Capital: Cabinda</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Cabinda → Luanda</span>
+                            <span class="route-price">18.500 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Cabinda → Soyo</span>
+                            <span class="route-price">12.300 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 6 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 7 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Província 8 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 9 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 10 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 11 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 12 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 13 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 14 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 15 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 16 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 17 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Província 18 -->
+            <div class="province-card">
+                <div class="province-image">
+                    <img src="https://source.unsplash.com/random/600x400/?malanje" alt="Malanje">
+                </div>
+                <div class="province-info">
+                    <h3>Malanje</h3>
+                    <p class="province-capital">Capital: Malanje</p>
+                    <div class="province-routes">
+                        <div class="route-item">
+                            <span>Malanje → Luanda</span>
+                            <span class="route-price">9.200 Kz</span>
+                        </div>
+                        <div class="route-item">
+                            <span>Malanje → Uíge</span>
+                            <span class="route-price">6.700 Kz</span>
+                        </div>
+                        <a href="#" class="view-all">Ver todas rotas →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>TransAngola</h3>
+                <p>Conectando Angola através de viagens seguras e confortáveis.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Email: info@transangola.ao</p>
+                <p>Telefone: +244 123 456 789</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TransAngola. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

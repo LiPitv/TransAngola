@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Poltronas - TransAngola</title>
+   <link rel="stylesheet" href="css/Lugar.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>TransAngola</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Untitled-1.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="comprar.html" class="cta-button active">Comprar Bilhete</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Selecione sua Poltrona</h1>
+        <div class="bus">
+            <div class="row">
+                <div class="seat">01</div>
+                <div class="seat">02</div>
+                <div class="corridor"></div>
+                <div class="seat">03</div>
+                <div class="seat">04</div>
+            </div>
+            <div class="row">
+                <div class="seat">05</div>
+                <div class="seat">06</div>
+                <div class="corridor"></div>
+                <div class="seat">07</div>
+                <div class="seat">08</div>
+            </div>
+            <div class="row">
+                <div class="seat">09</div>
+                <div class="seat">10</div>
+                <div class="corridor"></div>
+                <div class="seat">11</div>
+                <div class="seat">12</div>
+            </div>
+            <div class="row">
+                <div class="seat">13</div>
+                <div class="seat">14</div>
+                <div class="corridor"></div>
+                <div class="seat">15</div>
+                <div class="seat">16</div>
+            </div>
+            <div class="row">
+                <div class="seat">17</div>
+                <div class="seat">18</div>
+                <div class="corridor"></div>
+                <div class="seat">19</div>
+                <div class="seat">20</div>
+            </div>
+            <div class="row">
+                <div class="seat">21</div>
+                <div class="seat">22</div>
+                <div class="corridor"></div>
+                <div class="seat">23</div>
+                <div class="seat">24</div>
+            </div>
+            <div class="row">
+                <div class="seat">25</div>
+                <div class="seat">26</div>
+                <div class="corridor"></div>
+                <div class="seat">27</div>
+                <div class="seat">28</div>
+            </div>
+        </div>
+        
+        <div class="navigation-buttons">
+            <button class="nav-button" id="btnAnterior">Anterior</button>
+            <button class="nav-button" id="btnProximo">Próximo</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+    <script>
+        document.querySelectorAll('.seat').forEach(seat => {
+            seat.addEventListener('click', () => {
+                seat.classList.toggle('selected');
+                updateProximoButton();
+            });
+        });
+
+        // Função para atualizar o estado do botão Próximo
+        function updateProximoButton() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            const btnProximo = document.getElementById('btnProximo');
+            
+            if (selectedSeats.length > 0) {
+                document.getElementById('message').textContent = '';
+            }
+        }
+
+        // Redirecionar para viagen.html quando clicar em Anterior
+        document.getElementById('btnAnterior').addEventListener('click', () => {
+            window.location.href = 'viagen.html';
+        });
+
+        // Validação para o botão Próximo
+        document.getElementById('btnProximo').addEventListener('click', () => {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            const message = document.getElementById('message');
+            
+            if (selectedSeats.length === 0) {
+                message.textContent = 'Por favor, selecione pelo menos uma poltrona antes de continuar.';
+            } else {
+                // Aqui você pode adicionar o redirecionamento para a próxima página
+                // ou a lógica para avançar no processo de compra
+                message.textContent = 'Processando sua seleção...';
+                
+                // Exemplo: redirecionar para pagamento.html após 1 segundo
+                setTimeout(() => {
+                    // window.location.href = 'pagamento.html';
+                    alert('Redirecionando para a página de pagamento...');
+                }, 1000);
+            }
+        });
+
+        // Inicializa o estado do botão Próximo
+        updateProximoButton();
+    </script>
+</body>
+</html>
